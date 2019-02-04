@@ -1,4 +1,4 @@
- #! /usr/bin/env python3
+#! /usr/bin/env python3
 
 ''' 
 Simple Web Scrapping script to get the name of top most viewed
