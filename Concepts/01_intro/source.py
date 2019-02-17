@@ -88,7 +88,11 @@ print(MULTILINE)
 #   - Numbers
 #   - Strings
 #   - Tuples
+#   - Frozen Sets
 # Mutables
 #   - Lists
 #   - Dictionary
 #   - Sets
+
+# User-Defined Classes who do not have any medium to change their internal state
+# are also considered immutables. While if they change their internal state they are mutables.
