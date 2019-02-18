@@ -6,9 +6,11 @@ import unittest
 import source
 
 class TestSource(unittest.TestCase):
-    ''' test class to  make the methods for testing the original methods
+    ''' 
+    Test class to  make the methods for testing the original methods
     All the test methods inside test class should start form the name 'test_'
-    or else the method will be skipped from unit testing. This is by convention. '''
+    or else the method will be skipped from unit testing. This is by convention. 
+    '''
 
     def test_add(self):
         ''' test method for testing add function '''

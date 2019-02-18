@@ -1,6 +1,8 @@
 diaspora
+ejs.js
 golang-github-jfbus-httprs
 golang-github-sebest-xff
+node-async-stacktrace
 node-diacritics
 ruby-activerecord-import
 ruby-blade
@@ -15,6 +17,9 @@ ruby-rails-assets-jquery.are-you-sure
 ruby-selenium-webdriver
 ruby-snorlax
 ruby-sprockets-rails
+yamm3
+zeparser.js
+gatsby
 golang-github-certifi-gocertifi
 autosize.js
 node-ansi-styles
@@ -45,7 +50,6 @@ ruby-fog-cloudatcost
 ruby-fog-google
 ruby-fog-rackspace
 ruby-gitlab
-ruby-hamlit
 ruby-http
 ruby-http-form-data
 ruby-jekyll-gist
@@ -57,7 +61,6 @@ ruby-mini-magick
 ruby-nokogiri
 ruby-octokit
 ruby-rails-assets-blueimp-gallery
-ruby-rails-assets-markdown-it
 ruby-rails-assets-markdown-it-diaspora-mention
 ruby-rails-assets-perfect-scrollbar
 ruby-uuid

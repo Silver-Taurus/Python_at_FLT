@@ -1,7 +1,7 @@
 #! /usr/bin/env python3
 
 '''
-This Package-Scraper will scrap the name of all the
+This Package-Scrapper will scrape the name of all the
 packages developed from the mentioned website.
 '''
 
@@ -28,13 +28,12 @@ def scrap(url):
         else:
             yield name
 
-def package_file(file_name, url, yld=False):
+def package_file(file_name, url):
     ''' Function to access and update the package-name file '''
     with open(file_name + '.txt', 'w') as pf:
         for name in scrap(url):
             pf.write(name + '\n')
-            if yld == True:
-                yield name
+            yield name
 
 def log_file(file_name, added_names, deleted_names=set()):
     ''' Function to access and update the log file '''
@@ -56,11 +55,10 @@ def main():
     file_name = get_file_name(url)
     try:
         packages = {line.strip() for line in open(file_name + '.txt', 'r')}
-        package_file(file_name, url)
-        new_packages = {line.strip() for line in open(file_name + '.txt', 'r')}
+        new_packages = {name for name in package_file(file_name, url)}
         log_file(file_name, new_packages.difference(packages), packages.difference(new_packages))
     except FileNotFoundError:
-        added_names = {name for name in package_file(file_name, url, yld=True)}
+        added_names = {name for name in package_file(file_name, url)}
         log_file(file_name, added_names)
 
 if __name__ == '__main__':

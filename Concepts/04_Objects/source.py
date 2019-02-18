@@ -65,6 +65,7 @@ print(exec_function(cube, 4))
 print(exec_function(square, 6))
 
 
+
 # Object introspection
 
 # In computer programming, introspection is the ability to determine the type of  an object at runtime. It is one of python's strengths. Everything in 
