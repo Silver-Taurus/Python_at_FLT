@@ -84,3 +84,33 @@ print('Operation time (for 2**10000): ', end-start)
 #   floor(1.999) -> 1
 #   floor(-3.1) -> -4
 # So, --> a // b = floor(a/b).
+
+
+
+# Integer Constructors and Bases
+#	- int class provides multiple constructors
+# Type-1: Takes number
+a = int(10)
+b = int(-10)
+c = int(10.9)	# truncation
+d = int(-10.9)	# truncation
+print(a, b, c, d)
+
+# Type-2: Takes string
+e = int('10')	# int('123')	--> (123) of base-10
+print(e)
+# When we ue a string, constructor has an optional second parameter: base --> 2 <= base <= 36.
+# If base is not specified, the default is base-10, as in the example above.
+f = int('1010', base=2)		# or int('1010', 2)
+g = int('534',   base=8)
+h = int('A12F', base=16)
+i = int('a12f', base=16)
+j = int('A', base=11)
+print(f, g, h, i, j)
+
+# But for int('B', 11) --> ValueError: invalid literal for int() with base 11: 'B'.
+# This is because for base-11 the highest value is A.
+
+
+# Reverse-Process: changing an integer from base 10 to another base.
+# built-in functions: bin()
