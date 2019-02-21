@@ -120,6 +120,14 @@ def main():
             elif choice == '4':
                 exit()
 
+            fa = FiniteAutomata()
+            if choice == '1':
+                print('\n\nGiven Finite Automata is: {}\n\n'.format('DFA' if fa.is_dfa() else 'NFA'))
+            elif choice == '2':
+                pass
+            else:
+                pass
+                
         except KeyboardInterrupt:
             exit()
     
