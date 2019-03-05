@@ -131,3 +131,16 @@ print(my_tuple)
 # In this case, both the variables will have different references as we have declared it separately,
 # the python memory manager knows that they are mutables, hence should be allocated with different
 # memory addresses. Unlike the immutables they will not have any chance of having same references.
+
+
+
+# Mutation Problem
+l1 = ["hi"]
+print(l1)
+l2 =  l1
+l2 += ["bye"]
+print(l2)
+print(l1)
+# It's Mutability in action. Whenever you assign a variable to another variable of mutable datatype, 
+# any changes to the data are reflected by both variables. The new variable is just alias for the old variable.
+# This is true for only mutable datatypes.
