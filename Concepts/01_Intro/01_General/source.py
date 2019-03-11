@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 
-''' This file provides the general introduction about the pyrhon '''
+''' This file provides the general introduction about the python '''
 
 # Variable declaration
 # VAR = 20        # Assigning value
@@ -20,13 +20,13 @@ A = B = C = 10  # Multiple declaration
 #    --> Convey a special meaning to the compiler/interpreter
 #    --> Each keyword have a special meaning and a specific operation
 #    --> Keyword cannot be used as a variable
-# False	 class	     finally	 is	        return
-# None	    continue   for	    lambda	 try
-# True  	 def	     from	    nonlocal  while
-# and	    del        global 	 not	    with
-# as	    elif	     if	    or	       yield
-# assert   else	     import	 pass
-# break	 except	   in	    raise
+# False	    class	    finally	    is	        return
+# None	    continue    for	        lambda	    try
+# True  	def	        from	    nonlocal    while
+# and	    del         global 	    not	        with
+# as	    elif	    if	        or	        yield
+# assert    else	    import	    pass
+# break	    except	    in	        raise
 
 
 # Identifiers
@@ -48,6 +48,7 @@ A = B = C = 10  # Multiple declaration
 #           - Special literal
 
 # String Literals
+print('---- String Literals ----')
 FNAME = "Silver"
 LNAME = "Taurus"
 print(FNAME + ' ' + LNAME)
