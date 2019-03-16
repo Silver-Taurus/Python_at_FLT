@@ -53,7 +53,8 @@ my_func('World')
 #---- Exmaple-1 ----
 from fractions import Fraction
 f = Fraction(2, 3)
-print('---- Decorating Class ----')
+print('\n\n---- Decorating Class ----')
+print('---- Example-1 ----')
 print(f.denominator)
 print(f.numerator)
 #   Fraction.is_integer = lambda self: self.denominator == 1      
@@ -95,7 +96,84 @@ class Person:
         return 'Hello {}'.format(self.name)
 
 p = Person('Silver', 1999)
+print('---- Example-2 ----')
 p.debug()
 
 # As from the above two example we can see that in first exmaple rather than using decorator, we can directly add the property,
-# while when are needed to reuse it we can make a decorator like in exmple-2.
+# while when are needed to reuse it we can make a decorator like in example-2. Since, debug_info can be used for many different classes.
+
+@debug_info
+class Automobile:
+    def __init__(self, make, model, year, top_speed):
+        self.make = make
+        self.model = model
+        self.year = year
+        self.top_speed = top_speed
+        self._speed = 0
+
+    @property
+    def speed(self):
+        return self._speed
+
+    @speed.setter
+    def speed(self, new_speed):
+        if new_speed > self.top_speed:
+            raise ValueError('Speed cannot exceed top_speed.')
+        else:
+            self._speed = new_speed
+
+favourite = Automobile('Ford', 'Model T', 1908, 45)
+print(favourite.debug())
+# favourite.speed = 50  --> will give you the ValueError - Speed cannot exceed top_speed.
+favourite.speed = 40
+print(favourite.speed)  # Returning speed property that is in-turn the self._speed
+
+#---- Example-3 ----
+#   - Monkey Patching the ordering method in our class with the decorator `total_ordering` that is provided by the Python
+from math import sqrt
+
+# complete_ordering - our equivalent of total_ordering decorator - but is not such a good python code to be used
+# and is just for reference.
+#   def complete_ordering(cls):
+#       if '__eq__' in dir(cls) and '__lt__' in dir(cls):
+#           cls.__le__ = lambda self, other: self < other or self == other
+#           cls.__ge__ = lambda self, other: not(self < other) and not(self == other)
+#           cls.__gt__ = lambda self, other: not(self < other)
+#       return cls
+
+from functools import total_ordering
+
+@total_ordering
+class Point:
+    def __init__(self, x ,y):
+        self.x = x
+        self.y = y
+    
+    def __abs__(self):
+        return sqrt(self.x ** 2 + self.y ** 2)
+    
+    def __repr__(self):
+        return 'Point({}, {})'.format(self.x, self.y)
+
+    def __lt__(self, other):
+        if isinstance(other, Point):
+            return abs(self) < abs(other)
+        else:
+            return False
+
+p1, p2, p3 = Point(2,3), Point(2,3), Point(0,0)
+print('---- Example-3 ----')
+print('Abs: ', abs(p1))
+print('is')
+print(p1 is p2)
+print(p2 is p3)
+print('==')
+print(p1 == p2)
+print(p1 == p3)
+print('<')
+print(p2 < p1)
+print(p3 < p1)
+print('>=')
+print(p1 >= p2)
+
+# For toatl_ordering to be working, only one of the >, <, >= or <= should be a defined method.
