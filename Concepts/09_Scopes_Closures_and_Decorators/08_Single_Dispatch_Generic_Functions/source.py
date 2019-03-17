@@ -176,7 +176,7 @@ def single_dispatch(fn):
     def dispatch_registry(type_):
         return registry.get(type_, registry[object])
 
-    # Making the getter fucntion as an attribute
+    # Making the dispatch_registry function as an attribute
     decorated_function.dispatch_registry = dispatch_registry
 
     return decorated_function
